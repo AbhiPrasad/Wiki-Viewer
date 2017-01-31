@@ -64,8 +64,9 @@ function updateSearch(json) {
 function parseDiv(searchList, index) {
     for (var i = 0; i < SEARCH_NUM; i++) {
 
-        var titletx = searchList[index[i]]["title"];
-        var snippettx = searchList[index[i]]["extract"];
+        let titletx = searchList[index[i]]["title"];
+        let snippettx = searchList[index[i]]["extract"];
+        let pageid = searchList[index[i]]["pageid"];
 
         $('<div/>', {
             class: "titleText",
@@ -75,7 +76,9 @@ function parseDiv(searchList, index) {
         $('<a/>', {
             class: "snippetText",
             id: "extract" + i,
-            html: snippettx
+            html: snippettx,
+            href: "https://en.wikipedia.org/?curid=" + pageid,
+            target: "_blank"
         }).insertAfter('#title' + i);
     }
 }
