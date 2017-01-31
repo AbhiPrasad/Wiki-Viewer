@@ -53,20 +53,19 @@ function updateSearch(json) {
     //console.log(wikitext);
 }
 
-// appends title and result divs in order to 
+// inserts title and result divs -> remember to add page id https://en.wikipedia.org/?curid=5042916
 function parseDiv(searchList, index) {
     for (var i = 0; i < SEARCH_NUM; i++) {
 
         var titletx = searchList[index[i]]["title"];
         var snippettx = searchList[index[i]]["extract"];
 
-        console.log("hello");
+
         $('<div/>', {
             class: "titleText",
             id: "title" + i,
-            text: titletx
+            html: "<h4>" + titletx + "</h4>",
         }).insertAfter('#extract' + (i - 1));
-        $('<br/>').insertAfter("#title" + i);
         $('<a/>', {
             class: "snippetText",
             id: "extract" + i,
