@@ -9,6 +9,7 @@
 
 .searchBar {
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .apiText {
@@ -32,4 +33,8 @@
 
 .center-text {
     text-align: center;
+}
+
+.randomBtn {
+    margin-top: 0em;
 }
