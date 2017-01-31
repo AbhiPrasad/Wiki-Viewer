@@ -4,6 +4,13 @@ const SEARCH_NUM = 10;
 
 //when button is clicked
 $('#searchBtn').click(function(e) {
+
+    $('#apiText').empty();
+
+    $('<div/>', {
+        id: "extract-1"
+    }).appendTo('#apiText').fadeIn(300);
+
     var searchTerm = "";
 
     e.preventDefault();
