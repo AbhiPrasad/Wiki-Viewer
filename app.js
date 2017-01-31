@@ -1,5 +1,7 @@
 "use strict";
 
+const SEARCH_NUM = 10;
+
 //when button is clicked
 $('#searchBtn').click(function(e) {
     var searchTerm = "";
@@ -13,7 +15,7 @@ $('#searchBtn').click(function(e) {
     //converts value to term to be used in api
     var apiSearchTerm = searchTerm.replace(" ", "+");
 
-    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&generator=search&exsentences=5&exlimit=max&exintro=1&explaintext=1&gsrnamespace=0&gsrlimit=10&gsrsearch=" + apiSearchTerm;
+    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&generator=search&exsentences=2&exlimit=max&exintro=1&explaintext=1&gsrnamespace=0&gsrlimit=10&gsrsearch=" + apiSearchTerm;
     console.log(wikiAPI);
 
     //API call to get JSON
@@ -32,23 +34,32 @@ function updateSearch(json) {
 
     console.log(searchList);
 
+    var index = [];
+
+    for (var x in searchList) {
+        index.push(x);
+    }
+
+    console.log(searchList[index[1]]);
+
     // var wikitext = JSON.stringify(searchList).replace(/"/g, "");
 
-    var listLength = Object.keys(searchList);
+    //  var listLength = Object.keys(searchList);
 
-    console.log(listLength);
+    // console.log(listLength);
 
     //puts title and length into div
-    // parseDiv(wikitext, listLength);
+    parseDiv(searchList, index);
     //console.log(wikitext);
 }
 
 // appends title and result divs in order to 
-function parseDiv(searchList, listLength) {
-    for (var i = 0; i < listLength; i++) {
+function parseDiv(searchList, index) {
+    for (var i = 0; i < SEARCH_NUM; i++) {
 
-        var titletx = searchList[i]["title"];
-        var snippettx = searchList[i]["extract"];
+        var titletx = searchList[index[i]]["title"];
+        var snippettx = searchList[index[i]]["extract"];
+
         console.log("hello");
         $('<div/>', {
             class: "titleText",
