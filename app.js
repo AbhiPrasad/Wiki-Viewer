@@ -13,9 +13,7 @@ $('#searchBtn').click(function(e) {
     //converts value to term to be used in api
     var apiSearchTerm = searchTerm.replace(" ", "+");
 
-    console.log(apiSearchTerm);
-
-    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&utf8=&redirects&srsearch=" + apiSearchTerm;
+    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts&generator=search&exsentences=5&exlimit=max&exintro=1&explaintext=1&gsrnamespace=0&gsrlimit=10&gsrsearch=" + apiSearchTerm;
     console.log(wikiAPI);
 
     //API call to get JSON
@@ -30,14 +28,19 @@ function errMsg(jqxhr, textStatus, err) {
 //if json request doesn't fail
 function updateSearch(json) {
 
-    var searchList = json["query"]["search"];
+    var searchList = json.query.pages;
 
-    var listLength = searchList.length;
+    console.log(searchList);
 
-    var wikitext = JSON.stringify(searchList).replace(/"/g, "");
+    // var wikitext = JSON.stringify(searchList).replace(/"/g, "");
+
+    var listLength = Object.keys(searchList);
+
+    console.log(listLength);
 
     //puts title and length into div
-    parseDiv(searchList, listLength);
+    // parseDiv(wikitext, listLength);
+    //console.log(wikitext);
 }
 
 // appends title and result divs in order to 
@@ -45,17 +48,17 @@ function parseDiv(searchList, listLength) {
     for (var i = 0; i < listLength; i++) {
 
         var titletx = searchList[i]["title"];
-        var snippettx = searchList[i]["snippet"];
-
+        var snippettx = searchList[i]["extract"];
+        console.log("hello");
         $('<div/>', {
             class: "titleText",
             id: "title" + i,
             text: titletx
-        }).insertAfter('#snippet' + (i - 1));
+        }).insertAfter('#extract' + (i - 1));
         $('<br/>').insertAfter("#title" + i);
         $('<a/>', {
             class: "snippetText",
-            id: "snippet" + i,
+            id: "extract" + i,
             html: snippettx
         }).insertAfter('#title' + i);
     }
