@@ -1,6 +1,7 @@
 .centerdiv {
     width: 60%;
     margin: 0 auto;
+    padding-bottom: 2em;
 }
 
 #searchBtn {
@@ -10,10 +11,6 @@
 .searchBar {
     margin-top: 2em;
     margin-bottom: 2em;
-}
-
-#apiText {
-    padding-left: 2em;
 }
 
 .titleText {

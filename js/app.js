@@ -9,7 +9,7 @@ $('#searchBtn').click(function(e) {
 
     $('<div/>', {
         id: "extract-1"
-    }).appendTo('#apiText').fadeIn(300);
+    }).appendTo('#apiText');
 
     var searchTerm = "";
 
@@ -66,7 +66,6 @@ function parseDiv(searchList, index) {
 
         var titletx = searchList[index[i]]["title"];
         var snippettx = searchList[index[i]]["extract"];
-
 
         $('<div/>', {
             class: "titleText",
