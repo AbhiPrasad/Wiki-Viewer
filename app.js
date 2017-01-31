@@ -11,13 +11,14 @@ $('#searchBtn').click(function(e) {
     console.log(searchTerm);
 
     //converts value to term to be used in api
-    var apiSearchTerm = searchTerm.replace(" ", "%20");
+    var apiSearchTerm = searchTerm.replace(" ", "+");
 
     console.log(apiSearchTerm);
 
-    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srsearch=" + apiSearchTerm + "&utf8=";
+    var wikiAPI = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&utf8=&redirects&srsearch=" + apiSearchTerm;
     console.log(wikiAPI);
 
+    //API call to get JSON
     $.getJSON(wikiAPI).done(updateSearch).fail(errMsg);
 });
 
@@ -28,9 +29,34 @@ function errMsg(jqxhr, textStatus, err) {
 
 //if json request doesn't fail
 function updateSearch(json) {
-    console.log(json);
 
-    var wikitext = JSON.stringify(json).replace(/"/g, "");
+    var searchList = json["query"]["search"];
 
-    $('#test').html(wikitext);
+    var listLength = searchList.length;
+
+    var wikitext = JSON.stringify(searchList).replace(/"/g, "");
+
+    //puts title and length into div
+    parseDiv(searchList, listLength);
+}
+
+// appends title and result divs in order to 
+function parseDiv(searchList, listLength) {
+    for (var i = 0; i < listLength; i++) {
+
+        var titletx = searchList[i]["title"];
+        var snippettx = searchList[i]["snippet"];
+
+        $('<div/>', {
+            class: "titleText",
+            id: "title" + i,
+            text: titletx
+        }).insertAfter('#snippet' + (i - 1));
+        $('<br/>').insertAfter("#title" + i);
+        $('<a/>', {
+            class: "snippetText",
+            id: "snippet" + i,
+            html: snippettx
+        }).insertAfter('#title' + i);
+    }
 }
