@@ -12,6 +12,8 @@
         "128": "icons/icon128.png"
     },
 
+    "options_page": "options.html",
+
     "browser_action": {
         "default_title": "Wiki Viewer",
         "default_popup": "index.html"
