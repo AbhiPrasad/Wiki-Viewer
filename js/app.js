@@ -8,14 +8,14 @@ $(document).ready(function() {
 
     $("#inputBox").autocomplete({
         source: function(request, response) {
-            $.getJSON("http://en.wikipedia.org/w/api.php").done(updateSearch).fail(errMsg);
             $.ajax({
                 url: "http://en.wikipedia.org/w/api.php",
                 dataType: "jsonp",
                 data: {
                     'action': "opensearch",
                     'format': "json",
-                    'search': request.term
+                    'search': request.term,
+                    'origin': "*"
                 },
                 success: function(data) {
                     response(data[1]);
