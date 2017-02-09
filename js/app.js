@@ -2,6 +2,11 @@
 
 const SEARCH_NUM = 10;
 
+$(document).ready(function() {
+    $('#inputBox').focus();
+    $('#inputBox').select();
+});
+
 //when button is clicked
 $('#searchBtn').click(function(e) {
 
