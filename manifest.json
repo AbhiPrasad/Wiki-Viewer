@@ -4,7 +4,7 @@
     "version": "0.0.1",
 
     //"default_locale": "en",
-    "description": "A extension that replaces your new tab page with a simple wikipedia search",
+    "description": "Simple wikipedia search as an extension",
     "icons": {
         "16": "icons/icon16.png",
         "32": "icons/icon32.png",
@@ -12,13 +12,13 @@
         "128": "icons/icon128.png"
     },
 
-    "chrome_url_overrides": {
-        "newtab": "index.html"
+    "browser_action": {
+        "default_title": "Wiki Viewer",
+        "default_popup": "index.html"
     },
 
     "permissions": [
-        "system.storage",
-        "system.memory",
+        "tabs",
         "webRequest",
         "*://*.wikipedia.org/*"
     ]
