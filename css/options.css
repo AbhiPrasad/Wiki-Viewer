@@ -23,8 +23,6 @@
     display: inline-block;
     width: 100%;
     margin-top: 0.5em;
-    border-radius: 60px;
-    box-shadow: 0px 0px 2px #888;
     padding: 0.1em 0 0.1em 0;
 }
 
@@ -32,22 +30,18 @@
     text-align: center;
 }
 
-html,
-body {
-    height: 300px;
-    width: 550px;
-    margin-left: auto;
-    margin-right: auto;
+.credit {
+    margin-top: 0.5em;
 }
 
 .git-icon {
-    font-size: 3em;
+    font-size: 5em;
     text-align: center;
     display: inline-block;
 }
 
 .user-icon {
-    font-size: 3em;
+    font-size: 5em;
     text-align: center;
     display: inline-block;
 }
@@ -59,6 +53,7 @@ body {
 .me {
     padding-left: 0.3em;
     padding-right: 0.3em;
+    padding-top: 1em;
     color: #438518;
 }
 
