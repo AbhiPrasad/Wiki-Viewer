@@ -36,6 +36,8 @@ html,
 body {
     height: 300px;
     width: 550px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .git-icon {
