@@ -1,4 +1,4 @@
-# Wiki-Viewer
+# :mag: Wiki-Viewer
 
 A chrome extension that uses Mediawiki API in a elegant and simple search
 
