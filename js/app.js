@@ -5,6 +5,8 @@ const SEARCH_NUM = 10;
 //when button is clicked
 $('#searchBtn').click(function(e) {
 
+    $('.wiki-icon').hide();
+
     //empties last search
     $('#apiText').empty();
 
