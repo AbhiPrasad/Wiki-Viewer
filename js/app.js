@@ -5,6 +5,24 @@ const SEARCH_NUM = 10;
 $(document).ready(function() {
     $('#inputBox').focus();
     $('#inputBox').select();
+
+    $("#inputBox").autocomplete({
+        source: function(request, response) {
+            $.getJSON("http://en.wikipedia.org/w/api.php").done(updateSearch).fail(errMsg);
+            $.ajax({
+                url: "http://en.wikipedia.org/w/api.php",
+                dataType: "jsonp",
+                data: {
+                    'action': "opensearch",
+                    'format': "json",
+                    'search': request.term
+                },
+                success: function(data) {
+                    response(data[1]);
+                }
+            });
+        }
+    });
 });
 
 //when button is clicked

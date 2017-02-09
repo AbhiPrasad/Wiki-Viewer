@@ -18,11 +18,31 @@
         "default_title": "Wiki Viewer",
         "default_popup": "index.html"
     },
-
+    /*
+        "content_scripts": [{
+            "js": [
+                "js/jquery-3.1.1.min.js",
+                "js/jquery-ui.min.js",
+                "js/options.js",
+                "js/app.js",
+                "js/bootstrap.min.js"
+            ],
+            "css": [
+                "css/style.css",
+                "css/options.css",
+                "css/jquery-ui.min.css",
+                "css/jquery-ui.theme.min.css",
+                "css/font-awesome.min.css",
+                "css/bootstrap.min.sandstone.css",
+                "css/bootstrap-theme.min.css"
+            ]
+        }],
+    */
     "permissions": [
         "tabs",
         "webRequest",
-        "*://*.wikipedia.org/*"
+        "*://*.wikipedia.org/*",
+        "http://en.wikipedia.org/w/api.php/*"
     ]
 
 }
