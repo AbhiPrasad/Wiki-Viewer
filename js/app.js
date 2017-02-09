@@ -10,7 +10,9 @@ $(document).ready(function() {
 //when button is clicked
 $('#searchBtn').click(function(e) {
 
-    $('.wiki-icon').hide();
+    if (!$('#inputBox').val().length == 0) {
+        $('.wiki-icon').hide();
+    }
 
     //empties last search
     $('#apiText').empty();
