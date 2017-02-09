@@ -12,17 +12,6 @@ Check it out [here](https://abhiprasad.github.io/Wiki-Viewer/) (web app)
 * J Q U E R Y
 * some other stuff (check out the repo)
 
-## Features
-* Searchs and displays wikipedia results based on queries
-* A nice and simple chrome app (browser plugin)
-* Bootstrapped for responsive view 
-
-## To Build
-
-1. Clone the repo
-2. Drop the project folder into the chrome extension page 
-3. Click on the W icon on the chrome toolbar
-
 ## Branches?
 * **master** contains the main web app and chrome extension
 
