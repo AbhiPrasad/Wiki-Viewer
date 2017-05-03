@@ -9,7 +9,7 @@ Check it out [here](https://abhiprasad.github.io/Wiki-Viewer/) (web app)
 ## Using
 * [Bootswatch](https://bootswatch.com/sandstone/)
 * [Mediawiki API](https://www.mediawiki.org/wiki/API:Main_page)
-* J Q U E R Y
+* jQuery + ajax
 * some other stuff (check out the repo)
 
 ## Branches?
